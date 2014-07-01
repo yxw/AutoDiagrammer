@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Cinch</id>
+    <version>2.0.70832</version>
+    <title>A Rich Full Featured WPF/SL MVVM Framework</title>
+    <authors>Sacha Barber</authors>
+    <owners>Sacha Barber</owners>
+    <licenseUrl>http://cinch.codeplex.com/license</licenseUrl>
+    <projectUrl>http://cinch.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Cinch is a MVVM framework that exposes a number of helper classes to allow the developer to quickly get to grips with creating scalable testable MVVM frameworks as quickly as possible.</description>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

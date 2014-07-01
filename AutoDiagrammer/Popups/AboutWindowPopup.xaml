@@ -1,0 +1,47 @@
+﻿<Window x:Class="AutoDiagrammer.AboutWindowPopup"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:AutoDiagrammer"
+		xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+		xmlns:CinchV2="clr-namespace:Cinch;assembly=Cinch.WPF"
+		Title="SettingsWindow" Height="200" Width="400"
+		WindowStartupLocation="CenterScreen"
+		Background="#ffDDDDDD"
+		ResizeMode="NoResize"
+		WindowStyle="ToolWindow">
+
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		
+		
+		<Grid Grid.Row="0" HorizontalAlignment="Stretch" Background="SteelBlue">
+			<Label Grid.Row="0" Content="AutoDiagrammer" FontFamily="Verdana" FontSize="15" 
+					FontWeight="Bold" Foreground="#FFDDDDDD" VerticalContentAlignment="Center" Margin="8,3.04,0,6.5" HorizontalAlignment="Left">
+				<Label.Effect>
+					<DropShadowEffect ShadowDepth="0" BlurRadius="12" Color="Black"/>
+				</Label.Effect>
+			</Label>			
+		</Grid>
+		<TextBlock Margin="14,9,21,45" Grid.Row="1" TextWrapping="Wrap"><Run FontWeight="Bold" Language="en-gb" Text="Author : "/><Run Language="en-gb" Text=" Sacha Barber"/><LineBreak/><Run FontWeight="Bold" Language="en-gb" Text="Version : "/><Run Language="en-gb" Text="2"/><LineBreak/><Run FontWeight="Bold" Language="en-gb" Text="Publish Date : "/><Run Language="en-gb" Text="2011"/><LineBreak/><Run Language="en-gb"/><LineBreak/><Run Language="en-gb" Text="You can read more from Sacha Barber at:"/><LineBreak/><Run Language="en-gb"/><LineBreak/><Run Language="en-gb"/></TextBlock>
+		<Label Content="www.sachabarber.net" Margin="15,0,161.007,30" Grid.Row="1" 
+			   VerticalAlignment="Bottom" FontWeight="Bold" Foreground="SteelBlue" 
+			   Style="{DynamicResource HyperLinkLabelStyle}">
+
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseLeftButtonUp">
+					<CinchV2:EventToCommandTrigger 
+								 Command="{Binding LaunchWebCommand}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+
+		</Label>
+
+
+
+	</Grid>
+
+</Window>

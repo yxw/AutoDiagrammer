@@ -1,0 +1,277 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+
+        <style type="text/css">
+            body
+            {
+                font-family:"Verdana";
+                font-size:11px;
+                color:Black;
+                text-align:justify;
+                font-weight:normal;
+            }
+            h1
+            {
+                color:#4682B4;
+                text-align:left;
+                font-size:22px;
+                font-weight:bold;
+            }
+            h2
+            {
+                color:#4682B4;
+                text-align:left;
+                font-size:18px;
+                font-weight:bold;
+            }     
+            h3
+            {
+                color:#4682B4;
+                text-align:left;
+                font-size:14px;
+                font-weight:bold;
+            }        
+            p
+            {
+                font-family:"Verdana";
+                font-size: 11px;
+                color:Black;
+                text-align:justify;
+                font-weight:normal;
+            }
+            
+            #header
+            {
+                width:100%;
+                height:60px;
+                line-height:60px;
+            }
+            
+            #headerImage
+            {
+                line-height:100%;  
+                position:absolute;
+                top:5px;  
+                
+                
+            }
+            
+            #headerText
+            {
+                font-family:"Verdana";
+                color:#4682B4;
+                text-align:left;
+                font-size:24px;
+                font-weight:bold;      
+                line-height:100%;  
+                position:absolute;
+                top:16px;   
+                left:70px;
+                margin-left:10px;
+            }            
+            
+        </style>
+
+		<title>AutoDiagrammer Help</title>
+	</head>
+	<body>
+        <div id="header">
+            <img id="headerImage" src="Help.png" width="50px" height="50px"  />
+            <p id="headerText">AutoDiagrammer Help</p>
+        </div>
+
+        <p>This help file outlines how you should use AutoDiagrammer</p>
+		<p>&nbsp;</p>
+		<h1>Table Of Contents</h1>
+        <ul>
+	        <li><a href="#loadDll">Load A Dll/Exe</a></li>
+	        <li><a href="#drawDll">Picking The Classes To Draw</a></li>
+	        <li><a href="#onceDrawn">Working With The Drawn Class Diagram</a>
+		        <ul>
+			        <li><a href="#classes">Classes</a>
+				        <ul>
+					        <li><a href="#viewMethIL">Viewing Method Body IL</a></li>
+					        <li><a href="#viewAss">Viewing Associations</a></li>
+			        	</ul>
+
+			        </li>
+			        <li><a href="#notAss">Not Associated Classes</a></li>
+		        </ul>
+	        </li>
+            <li><a href="#saving">Saving</a></li>
+            <li><a href="#printing">Printing</a></li>
+	        <li><a href="#customize">Customising What Is Shown On Diagram</a>
+		        <ul>
+			        <li><a href="#graphSettings">Graph Layout Algorithm</a></li>
+			        <li><a href="#settings">Picking What To Show</a></li>
+		        </ul>
+	        </li>
+        </ul>
+
+
+        <h1>&nbsp;</h1>
+		<h1><a name="loadDll">Load A Dll/Exe</a></h1>
+        <p>This is the easy bit all you need to do it pick the "Open" button and then choose whether its a Dll or Exe you wish to open, and then browse to the location of the file you wish to open</p>
+        <img src="Open.png" /><p>&nbsp;</p>
+&nbsp;<h1><a name="drawDll">Picking The Classes To Draw</a></h1>
+        <p>Once you have picked which Dll/Exe to load you will get a populated 
+		TreeView which is origanised into namespaces that the classes reside in. 
+		This process may take a while as this is where the bulk of the work is 
+		done reflecting out the information from the requested Dll/Exe, and 
+		there is also a timeout on this process, which can be adjusted from the 
+		settings window.</p>
+		<p><img alt="" height="111" src="loadingTimeOut.png" width="579"></p>
+		<p>Whilst the TreeView is being generated you will see this loading 
+		banner</p>
+		<p><img alt="" height="92" src="loading1.png" width="557"></p>
+		<p>So assuming you have a loaded TreeView all you need to do now is pick 
+		which classes you would like to appear on the diagram. This is done by 
+		simply using the CheckBoxes beside the names of the classes, or beside 
+		the entire namespace or even the whole TreeView. Then click on the Draw 
+		button (yes the one shown with the pencil)</p>
+		<p><img alt="" height="315" src="TreeView.png" width="252"></p>
+		<p>After you have oicked which classes to draw and clicked the Draw 
+		button, you will see a 2nd loading screen (that will be of the form 
+		shown below) whilst the diagram is created.</p>
+		<p><img alt="" height="64" src="loading2.png" width="496"></p>
+		<p>After the diagram has been created (Or a timeout occurs, which again 
+		can be adjusted via the settings window) </p>
+		<p><img alt="" height="136" src="drawingTimeOut.png" width="501"></p>
+		<p>A new diagram will be shown (or in the case of a timeout the last 
+		diagram which was succesfully loaded (if there was one))</p>
+		<p><img alt="" height="587" src="diag.png" width="656"></p>
+		<p>NOTE : All the classes may <strong>NOT</strong> appear on the 
+		diagram, as only those classes which have Associations are shown on the 
+		actual diagram. This is to declutter the diagram of information that is 
+		not really that valid. Not Associated classes may still be viewed, which 
+		is explained below.</p>
+		<p>&nbsp;</p>
+
+        <h2><a name="classes">Classes</a></h2>
+        <p>Each class has serveral possible parts (again the diagram will not 
+		include these parts if there is nothing to show OR if the user&nbsp; has 
+		requested these parts not be shown). The possible parts that may show up 
+		on a given class are as follows:</p>
+		<ul>
+			<li>Interfaces</li>
+			<li>Constructors</li>
+			<li>Fields</li>
+			<li>Events</li>
+			<li>Properties</li>
+			<li>Methods</li>
+		</ul>
+		<p>Here is what a typical example of a class may look like. </p>
+		<p><img alt="" height="363" src="class.png" width="332"></p>
+
+        <h3><a name="viewMethIL">Viewing Method Body IL</a></h3>
+		<p>One thing that is also quite useful is that you can view the method 
+		body IL using the small magnifying glass icon shown.</p>
+		<p><img alt="" height="214" src="IL.png" width="435"></p>
+		<p>&nbsp;</p>
+		<p><strong>IMPORTANT NOTE : </strong>That each of these sections is 
+		within a expandable region. There is also a setting that you can use to 
+		determine if the class diagram is redrawn when these sections are 
+		expanded. The default is that the diagram will not be drawn again on 
+		expand/collapse, if this does not suit your feel free to use the system 
+		setting to alter this behaviour.</p>
+		<p><img alt="" height="53" src="expand.png" width="373"></p>
+		<p>&nbsp;</p>
+
+        <h3><a name="viewAss">Viewing Associations</a></h3>
+		<p>It is also possible to view all the associations for a given class by hovering 
+            over the class, which will show a popup of the associations</p>
+		<p><img alt="" height="122" src="Ass1.png" width="348"></p>
+		<p><img alt="" height="245" src="Ass2.png" width="396"></p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+
+        <h2><a name="notAss">Not Associated Classes</a></h2>
+        <p>As stated earlier the diagram is kept free of clutter by not placing 
+		any classes that do <strong>NOT</strong> have Associations actually on 
+		the diagram. These classes are still available, but they are just not on 
+		the main diagram, and <strong>MUST</strong> be accessed using the Not 
+		Associated classes dropdown, which will only be shown if there are some 
+		classes with no Associations that the user selected to draw.</p>
+		<p><img alt="" height="365" src="NoAss1.png" width="601"></p>
+		<p>Picking one of these will simply show a popup window with the details 
+		about the selected class using the same sections as if it was part of 
+		the&nbsp; main diagram.</p>
+		<p><img alt="" height="346" src="NoAss2.png" width="489"></p>
+		<p>&nbsp;</p>
+
+        <h1><a name="saving">Saving</a></h1>
+        <p>The diagram can be saved to an PNG (Portable Network Graphic) 
+		document, using the Save button provided.</p>
+		<p><img alt="" height="98" src="save1.png" width="227"></p>
+		<p>Which can then be viewed in the standard Windows Image Viewer</p>
+		<p>&nbsp;</p>
+
+        <h1><a name="printing">Printing</a></h1>
+        <p>You can also print directly using the Print button provided&nbsp;</p>
+		<p>&nbsp;</p>
+
+        <h1><a name="customize">Customising What Is Shown On Diagram</a></h1>
+		<p>The settings window allows the diagram to be tailored to your specfic 
+		requirements. These settings will be saved to disk whenever you close 
+		the AutoDiagrammer.exe and reloaded when you next run AutoDigrammer.exe</p>
+		<p><img alt="" height="435" src="setting1.png" width="512"></p>
+		<p>There are many settings here to control not only what is shown on the 
+		diagram but also what graph layout algorithm the diagram should use. The 
+		defualt graph layout algorithm is &quot;Efficient Sugiyama&quot; but you may find 
+		that another graph layout may be better for your diagram needs. This 
+		will largely be down to experimenting with what your diagram shows and 
+		what works best for you.</p>
+		<p>&nbsp;</p>
+
+        <h2><a name="graphSettings">Graph Layout Algorithm</a></h2>
+        <p>The settings windows allow the user to pick between different graph 
+		layout algorithms that may be used when creating the diagram. As 
+		previously mentioned the defualt graph layout algorithm is &quot;Efficient 
+		Sugiyama&quot;, but there are several other layout algorithms, as shown in 
+		the list below</p>
+		<ol>
+			<li>Bounded FR</li>
+			<li>Efficient Sugiyama</li>
+			<li>FR</li>
+			<li>ISOM</li>
+			<li>KK</li>
+			<li>Tree</li>
+		</ol>
+		<p>These layout algorithms may or may not suit your specific diagramming 
+		needs. This will largely be down to trial and error. However all 
+		settings are persisted, so when you exit AutoDiagrammer and come back to 
+		it, rest assured it will be how you left it.</p>
+		<p>What is common for ALL the different layout algorithms is that they 
+		have many different parameters that you can play with. For example here 
+		is the different set of settings that are available for the &quot;Efficient 
+		Sugiyama&quot; layout algorithm</p>
+		<p><img alt="" height="155" src="gl1.png" width="494"></p>
+		<p>And here are the settings for the &quot;Tree&quot; layout algorithm</p>
+		<p><img alt="" height="172" src="gl2.png" width="500"></p>
+		<p>&nbsp;</p>
+		<p>I would suggest that once you have an active diagram with classes and 
+		associations you open the settings window and experiment with the 
+		different layout algorithms and then hit the &quot;Re-Layout Graph&quot; button at 
+		the top right hand corner (shown highlighted in figures above) to find 
+		what best works for you.</p>
+		<p>&nbsp;</p>
+
+        <h2><a name="settings">Picking What To Show</a></h2>
+        <p>AutoDiagrammer also has many many settings which control how the 
+		diagram will be drawn. These settings are shown below</p>
+		<p><img alt="" height="396" src="set.png" width="525"></p>
+		<p>A lot of these are kind of pro-active settings in the sense that you 
+		will not need to Re-Layout the diagram again. This is down to the fact 
+		that the diagram binds directly to the settings ViewModel which is a 
+		singleton instance. Obviously the timeouts will only take effect the 
+		next time a new diagram is created. </p>
+
+
+
+
+        
+
+
+	</body>
+</html>

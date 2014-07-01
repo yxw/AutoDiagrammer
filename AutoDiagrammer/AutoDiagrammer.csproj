@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8A01BC7-B6C9-47CF-B07F-D1CF48EAF599}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoDiagrammer</RootNamespace>
+    <AssemblyName>AutoDiagrammer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cinch.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cinch.2.0.70832\lib\net40\Cinch.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp, Version=1.0.2.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\GraphSharp.1.1.0.0\lib\net40\GraphSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphSharp.Controls, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f9c24778325a6b82, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\GraphSharp.1.1.0.0\lib\net40\GraphSharp.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="GrayscaleEffect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MEFedMVVM.ValidationsExtensions.WPF">
+      <HintPath>..\packages\MEFedMVVM.ValidationExtensions.1.2\lib\net40\MEFedMVVM.ValidationsExtensions.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MEFedMVVM.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b6db3dc4f5fba1e3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cinch.2.0.70832\lib\net40\MEFedMVVM.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=736440c9b414ea16, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Royale" />
+    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Data">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Serialization">
+      <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WPFDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFExtensions, Version=1.0.3437.34043, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\AsyncBusyUserControl.xaml.cs">
+      <DependentUpon>AsyncBusyUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AsyncFailedUserControl.xaml.cs">
+      <DependentUpon>AsyncFailedUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AsyncHost.cs" />
+    <Compile Include="Controls\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FishEyePanel.cs" />
+    <Compile Include="Controls\VirtualToggleButton.cs" />
+    <Compile Include="GraphBits\SerializableVertex.cs" />
+    <Compile Include="GraphBits\SerializableMethodData.cs" />
+    <Compile Include="GraphBits\GraphResults.cs" />
+    <Compile Include="GraphBits\MethodData.cs" />
+    <Compile Include="GraphBits\TypeReflector.cs" />
+    <Compile Include="Helpers\DotNetObject.cs" />
+    <Compile Include="ILReader\ILInstruction.cs" />
+    <Compile Include="ILReader\MethodBodyReader.cs" />
+    <Compile Include="Interactivity\CollapseAction.cs" />
+    <Compile Include="Interactivity\PopupBehaviours.cs" />
+    <Compile Include="Popups\AboutWindowPopup.xaml.cs">
+      <DependentUpon>AboutWindowPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\HelpPopup.xaml.cs">
+      <DependentUpon>HelpPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\MethodBodyILPopup.xaml.cs">
+      <DependentUpon>MethodBodyILPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\NonAssociatedVertexPopup.xaml.cs">
+      <DependentUpon>NonAssociatedVertexPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Contracts\IAssemblyManipulationService.cs" />
+    <Compile Include="Services\Contracts\ITreeCreator.cs" />
+    <Compile Include="Services\Contracts\ISavePNGFileService.cs" />
+    <Compile Include="Services\Contracts\IPrintPNGFileService.cs" />
+    <Compile Include="Services\Implementation\TreeCreator.cs" />
+    <Compile Include="Services\Implementation\PrintPNGFileService.cs" />
+    <Compile Include="Services\Implementation\SavePNGFileService.cs" />
+    <Compile Include="ValueConverters\BoolToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\EnumToFriendlyNameConverter.cs" />
+    <Compile Include="ValueConverters\HasDataAndShouldShowMultiConverter.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="Services\Implementation\AssemblyManipulationService.cs" />
+    <Compile Include="ViewModels\AssemblyTreeViewModel.cs" />
+    <Compile Include="ViewModels\INPCBase.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Views\DragAndDropHelper.cs" />
+    <Compile Include="Views\IGraphPrintableWindow.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPF_Specific_Service_Implementations\WPFUIVisualizerService.cs" />
+    <Page Include="Controls\AsyncBusyUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AsyncFailedUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExpanderEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ExpanderEx.xaml.cs">
+      <DependentUpon>ExpanderEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExpanderWithControlsInHeader.cs" />
+    <Compile Include="GraphBits\ParameterExtensions.cs" />
+    <Compile Include="GraphBits\PocEdge.cs" />
+    <Compile Include="GraphBits\PocGraph.cs" />
+    <Compile Include="GraphBits\PocVertex.cs" />
+    <Compile Include="Interactivity\ExpanderBehaviour.cs" />
+    <Page Include="Popups\AboutWindowPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\HelpPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\MethodBodyILPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\NonAssociatedVertexPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Popups\SettingsWindowPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\AppStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\GlobalValueConverters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\LayoutParameterTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Popups\SettingsWindowPopup.xaml.cs">
+      <DependentUpon>SettingsWindowPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\draw.png" />
+    <Resource Include="Images\information.png" />
+    <Resource Include="Images\open.png" />
+    <Resource Include="Images\print.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\relayout.png" />
+    <Resource Include="Images\logo.ico" />
+    <Resource Include="Images\AssemblyOrExe.png" />
+    <Resource Include="Images\Class.png" />
+    <Resource Include="Images\Namespace.png" />
+    <Resource Include="Images\mag.png" />
+    <Resource Include="Images\Help.png" />
+    <Content Include="HtmlHelp\Ass1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\Ass2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\AutoDiagrammerHelp.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\class.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\diag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\drawingTimeOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\expand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\gl1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\gl2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\Help.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\IL.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\loading1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\loading2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\loadingTimeOut.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\NoAss1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\NoAss2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\Open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\print.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\save1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\set.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\setting1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HtmlHelp\TreeView.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Associations.png" />
+    <Content Include="Lib\Cinch.WPF.dll" />
+    <Content Include="Lib\GraphSharp.Controls.dll" />
+    <Content Include="Lib\GraphSharp.dll" />
+    <Content Include="Lib\GrayscaleEffect.dll" />
+    <Content Include="Lib\MEFedMVVM.WPF.dll" />
+    <Content Include="Lib\Microsoft.Contracts.dll" />
+    <Content Include="Lib\Microsoft.Expression.Interactions.dll" />
+    <Content Include="Lib\QuickGraph.dll" />
+    <Content Include="Lib\SUT.PrintEngine.dll" />
+    <Content Include="Lib\System.Windows.Interactivity.dll" />
+    <Content Include="Lib\WPFExtensions.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SUT.PrintEngine\SUT.PrintEngine.csproj">
+      <Project>{0b3d76d5-d9f4-4c0e-afa9-143138ebc74d}</Project>
+      <Name>SUT.PrintEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

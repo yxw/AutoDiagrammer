@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>IInject.CommonServiceLocator</id>
+    <version>1.2.0.1</version>
+    <title>IInject.Practices.ServiceLocation</title>
+    <authors>LogikBug</authors>
+    <owners>LogikBug</owners>
+    <projectUrl>http://iinject.codeplex.com/</projectUrl>
+    <iconUrl>https://en.gravatar.com/userimage/10356270/a756620202452a1f1e0cecc40f683879?size=200</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides an implementation of the Microsoft.Practices.ServiceLocation.IServiceLocator using IInject.</description>
+    <copyright>Copyright © LogikBug 2012</copyright>
+    <tags>commonservicelocator iinject di dependency-injection ioc inversion-of-control iinject-commonservicelocator practices iservicelocator</tags>
+    <dependencies>
+      <dependency id="CommonServiceLocator" version="1.0" />
+      <dependency id="IInject" version="1.2.0.0" />
+    </dependencies>
+  </metadata>
+</package>

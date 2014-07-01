@@ -1,0 +1,1107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IInject</name>
+    </assembly>
+    <members>
+        <member name="T:IInject.Container">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IInject.DisposableObject">
+            <summary>
+             Provides a base class for objects need to dispose of resources.
+            </summary>
+        </member>
+        <member name="M:IInject.DisposableObject.Dispose">
+            <summary>
+            Disposes of the res
+            </summary>
+        </member>
+        <member name="M:IInject.DisposableObject.AssertNotDisposedOrDisposing">
+            <summary>
+            Verifies that the current instance is not or has not been disposed.
+            Returns true if it has been disposed or is disposing, throws an exception otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.DisposableObject.Dispose(System.Boolean)">
+            <summary>
+            When overridden in a derived class, disposes of this instances' allocated resources.
+            </summary>
+        </member>
+        <member name="P:IInject.DisposableObject.IsDisposed">
+            <summary>
+            Returns true if the current instance has been disposed of, false otherwise.
+            </summary>
+        </member>
+        <member name="P:IInject.DisposableObject.IsDisposing">
+            <summary>
+            Returns true if the current instance is disposing, false otherwise.
+            </summary>
+        </member>
+        <member name="T:IInject.IContainer">
+            <summary>
+             Provides an interface for registering and resolving types from a <see cref="T:IInject.Container"/>.
+            </summary>
+        </member>
+        <member name="M:IInject.IContainer.Scan(System.String)">
+            <summary>
+            Loads and scans the assembly with the provided name.
+            </summary>
+            <param name="assemblyName">The name of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.IContainer.Scan(System.Reflection.AssemblyName)">
+            <summary>
+            Loads and scans the assembly with the provided <see cref="T:System.Reflection.AssemblyName"/>.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.IContainer.Scan(System.Reflection.Assembly)">
+            <summary>
+            Scans the provided <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+            <param name="assembly">The <see cref="T:System.Reflection.Assembly"/> to scan.</param>
+        </member>
+        <member name="M:IInject.IContainer.Scan(System.Action{IInject.Registration.Scanning.IAssemblyScanner})">
+            <summary>
+            Gives access to an AssemblyScanner that handles scanning assemblies.
+            This allows for customizing each scan by providing <see cref="T:IInject.Registration.Scanning.IScanningRule"/>s
+            or just using the default <see cref="T:IInject.ScanRules"/>.
+            </summary>
+            <param name="scanner">The delegate using the AssemblyScanner</param>
+            <returns><see cref="T:IInject.IContainer"/></returns>
+        </member>
+        <member name="M:IInject.IContainer.Get``1">
+            <summary>
+             Injects the dependencies into the type and returns the initialized object.
+            </summary>
+            <typeparam name="T">The registered type <typeparamref name="T"/>.</typeparam>
+            <returns>The resolved type <see cref="!:T"/>.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Get``1(System.String)">
+            <summary>
+             Injects the dependencies into the type and returns the initialized object.
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <typeparam name="T">The registered type <typeparamref name="T"/>.</typeparam>
+            <returns>The resolved type <see cref="!:T"/>.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Get(System.Type)">
+            <summary>
+             Injects the dependencies into the type and returns the initialized object.
+            </summary>
+            <param name="type">The type to return.</param>
+            <returns>The resolved type object.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Get(System.Type,System.String)">
+            <summary>
+             Injects the dependencies into the type and returns the initialized object.
+            </summary>
+            <param name="type">The registered <see cref="T:System.Type"/>.</param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <returns>The resolved type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.GetAll``1">
+            <summary>
+             Injects the dependencies into the types and returns them.
+            </summary>
+            <typeparam name="T">The registered types <typeparamref name="T"/>.</typeparam>
+            <returns>The resolved types <see cref="!:T"/>.</returns>
+        </member>
+        <member name="M:IInject.IContainer.GetAll``1(System.String)">
+            <summary>
+             Injects the dependencies into the types and returns them.
+            </summary>
+            <typeparam name="T">The registered types <typeparamref name="T"/>.</typeparam>
+            <returns>The resolved types <see cref="!:T"/>.</returns>
+        </member>
+        <member name="M:IInject.IContainer.GetAll(System.Type)">
+            <summary>
+             Injects the dependencies into the types and returns them.
+            </summary>
+            <param name="type"></param>
+            <returns>The resolved types.</returns>
+        </member>
+        <member name="M:IInject.IContainer.GetAll(System.Type,System.String)">
+            <summary>
+             Injects the dependencies into the types and returns them.
+            </summary>
+            <param name="type"></param>
+            <returns>The resolved types.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Map``1">
+            <summary>
+            </summary>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns>An <see cref="T:IInject.Registration.IContextBuilder"/> used to configure and register the type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Map``2">
+            <summary>
+            </summary>
+            <typeparam name="TFrom">The type to register.</typeparam>
+            <typeparam name="TTo">The type returned when resolved.</typeparam>
+            <returns>An <see cref="T:IInject.Registration.IContextBuilder"/> used to configure and register the type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Map(System.Type)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <returns>An <see cref="T:IInject.Registration.IContextBuilder"/> used to configure and register the type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Map(System.Action{IInject.Registration.IContextBuilder})">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <returns>An <see cref="T:IInject.Registration.IContextBuilder"/> used to configure and register the type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Map``1(System.Action{IInject.Registration.IContextBuilder{``0}})">
+            <summary>
+            </summary>
+            <param name="registerAction">The <see cref="T:System.Action"/> used to configure and register the type.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns>An <see cref="T:IInject.Registration.IContextBuilder"/> used to configure and register the type.</returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1">
+            <summary>
+            </summary>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(System.String)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(System.String,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(``0)">
+            <summary>
+            </summary>
+            <param name="instance"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(System.String,``0)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="instance"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(``0,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="instance"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``1(System.String,``0,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="instance"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``2">
+            <summary>
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``2(System.String)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``2(IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set``2(System.String,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            </summary>
+            <param name="items"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            </summary>
+            <param name="items"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``1(System.Type,System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            </summary>
+            <param name="from"></param>
+            <param name="items"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``1(System.Action{IInject.Registration.IEnumerableContextBuilder{``0}})">
+            <summary>
+            </summary>
+            <param name="registerAction"></param>
+            <typeparam name="T">The type to register.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``2(System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            </summary>
+            <param name="items"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``2(System.String,System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            </summary>
+            <param name="items"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.SetAll``2(System.Action{IInject.Registration.IEnumerableContextBuilder{``1}})">
+            <summary>
+            </summary>
+            <param name="registerAction"></param>
+            <typeparam name="TFrom"></typeparam>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.String)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.String,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Object)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.String,System.Object)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Object,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="instance"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.String,System.Object,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="type"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="instance"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Type)">
+            <summary>
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Type,System.String)">
+            <summary>
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Type,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.IContainer.Set(System.Type,System.Type,System.String,IInject.Scope)">
+            <summary>
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="key">The key associated with the registered type, null if no key is required.</param>
+            <param name="scope">The <see cref="T:IInject.Scope"/> of how this type will be resolved.</param>
+            <returns></returns>
+        </member>
+        <member name="P:IInject.IContainer.Registry">
+            <summary>
+             Gets the <see cref="T:IInject.Registration.IRegistryProvider"/> responsible for registering all types.
+            </summary>
+        </member>
+        <member name="P:IInject.IContainer.Resolver">
+            <summary>
+             Gets the <see cref="T:IInject.Resolution.ITypeDependencyResolver"/> responsible for resolving all dependencies.
+            </summary>
+        </member>
+        <member name="P:IInject.IContainer.Activator">
+            <summary>
+             Gets the <see cref="!:IDependencyActivator"/> responsible for creating all dependencies.
+            </summary>
+        </member>
+        <member name="M:IInject.Container.Scan(System.String)">
+            <summary>
+            Loads and scans the assembly with the provided name.
+            </summary>
+            <param name="assemblyName">The name of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.Container.Scan(System.Reflection.AssemblyName)">
+            <summary>
+            Loads and scans the assembly with the provided <see cref="T:System.Reflection.AssemblyName"/>.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.Container.Scan(System.Reflection.Assembly)">
+            <summary>
+            Scans the provided <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+            <param name="assembly">The <see cref="T:System.Reflection.Assembly"/> to scan.</param>
+        </member>
+        <member name="M:IInject.Container.Scan(System.Action{IInject.Registration.Scanning.IAssemblyScanner})">
+            <summary>
+            Gives access to an AssemblyScanner that handles scanning assemblies.
+            This allows for customizing each scan by providing <see cref="T:IInject.Registration.Scanning.IScanningRule"/>s
+            or just using the default <see cref="T:IInject.ScanRules"/>.
+            </summary>
+            <param name="scanner">The delegate using the AssemblyScanner</param>
+            <returns><see cref="T:IInject.IContainer"/></returns>
+        </member>
+        <member name="M:IInject.Container.GetRegistryProvider">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Container.GetDependencyResolver">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Container.GetDependencyActivator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.ContainerProvider.SetCurrent(IInject.IContainer)">
+            <summary>
+             Sets the current <see cref="T:IInject.IContainer"/>.
+            </summary>
+            <param name="container">The <see cref="T:IInject.IContainer"/> to use.</param>
+        </member>
+        <member name="P:IInject.ContainerProvider.Current">
+            <summary>
+             The current <see cref="T:IInject.IContainer"/>.
+            </summary>
+        </member>
+        <member name="T:IInject.Expressions.InjectionExpressionVisitor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IInject.Expressions.InjectionExpressionVisitor.#ctor(System.Collections.Generic.List{IInject.Registration.InjectPropertyContext})">
+            <summary>
+            
+            </summary>
+            <param name="properties"></param>
+        </member>
+        <member name="M:IInject.Expressions.InjectionExpressionVisitor.VisitMember(System.Linq.Expressions.MemberExpression)">
+            <summary>
+            Visits the children of the <see cref="T:System.Linq.Expressions.MemberExpression"/>.
+            </summary>
+            <returns>
+            The modified expression, if it or any subexpression was modified; otherwise, returns the original expression.
+            </returns>
+            <param name="node">The expression to visit.</param>
+        </member>
+        <member name="M:IInject.Expressions.InjectionExpressionVisitor.VisitUnary(System.Linq.Expressions.UnaryExpression)">
+            <summary>
+            Visits the children of the <see cref="T:System.Linq.Expressions.UnaryExpression"/>.
+            </summary>
+            <returns>
+            The modified expression, if it or any subexpression was modified; otherwise, returns the original expression.
+            </returns>
+            <param name="node">The expression to visit.</param>
+        </member>
+        <member name="T:IInject.Internal.DisposableContainerMember">
+            <summary>
+             Provides a base class for object that need reference to the
+             <see cref="P:IInject.Internal.DisposableContainerMember.Container"/> and that have resources to dispose of.
+            </summary>
+        </member>
+        <member name="M:IInject.Internal.DisposableContainerMember.#ctor(IInject.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IInject.Internal.DisposableContainerMember"/> class.
+            </summary>
+            <param name="container">The current <see cref="T:IInject.IContainer"/>.</param>
+        </member>
+        <member name="P:IInject.Internal.DisposableContainerMember.Container">
+            <summary>
+            The current <see cref="T:IInject.IContainer"/>.
+            </summary>
+        </member>
+        <member name="T:IInject.ObjectBuilder">
+            <summary>
+             Contains methods for injecting dependencies into an
+             object that is not registered with the <see cref="T:IInject.Container"/>.
+            </summary>
+        </member>
+        <member name="M:IInject.ObjectBuilder.Inject``1">
+            <summary>
+             Injects the <typeparamref name="T"/> with types located
+             in the current <see cref="P:IInject.ContainerProvider.Current"/>.
+            </summary>
+            <typeparam name="T">The type to inject.</typeparam>
+            <returns>The initialized, injected <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:IInject.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.CannotResolveConsctuctorMessage">
+            <summary>
+              Looks up a localized string similar to Can&apos;t resolve a constructor for type: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.CannotResolveTypeExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Could not resolve type: &apos;{0}&apos; with key: &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.InterfaceNamingConventionPrefix">
+            <summary>
+              Looks up a localized string similar to I.
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.TypeAlreadyRegisteredExceptionMessage">
+            <summary>
+              Looks up a localized string similar to A type: &apos;{0}&apos; is already registered with key: &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:IInject.Properties.Resources.TypeMustBeAnInterfaceExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Type must be an interface: &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.Scanning.ScanningRule.Inherits``1">
+            <summary>
+            Returns a rule that determines if a type inherits the provided type.
+            </summary>
+            <typeparam name="T">The type the scanned type inherits.</typeparam>
+            <returns>A rule that determines if a type inherits the provided type.</returns>
+        </member>
+        <member name="M:IInject.Registration.Scanning.ScanningRule.Inherits(System.Type)">
+            <summary>
+            Returns a rule that determines if a type inherits the provided type.
+            </summary>
+            <param name="baseType">The type the scanned type inherits.</param>
+            <returns>A rule that determines if a type inherits the provided type.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:IInject.Registration.Scanning.ScanningRule.Implements``1" -->
+        <member name="M:IInject.Registration.Scanning.ScanningRule.Implements(System.Type)">
+            <summary>
+            Returns a rule that determines if a type implements the provided interface type.
+            </summary>
+            <param name="interfaceType">The interface type the scanned type implements.</param>
+            <returns>A rule that determines if a type implements the provided interface type.</returns>
+        </member>
+        <member name="M:IInject.Registration.Scanning.ScanningRule.InterfaceNamingDefault">
+            <summary>
+            Returns a rule to determine if the type implements
+            an interface with the default naming convention.
+            Example: class MyClass implements interface IMyClass
+            </summary>
+            <returns>A default interface implementation rule.</returns>
+        </member>
+        <member name="M:IInject.Registration.Scanning.ScanningRule.PublicClass">
+            <summary>
+            Returns a rule that checks if the type is a public non-abstract class.
+            </summary>
+            <returns>A rule that checks if the type is a public non-abstract class.</returns>
+        </member>
+        <member name="T:IInject.Registration.Scanning.BaseTypeScanningRule">
+            <summary>
+            Registers all the types that inherit the type provided.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.Add(IInject.Registration.Scanning.IScanningRule)">
+            <summary>
+            Adds the provided <see cref="T:IInject.Registration.Scanning.IScanningRule"/> to the
+            conventions used througout the lifetime of this instance.
+            </summary>
+            <param name="convention">The <see cref="T:IInject.Registration.Scanning.IScanningRule"/> to add.</param>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.Using(IInject.Registration.Scanning.IScanningRule[])">
+            <summary>
+            Clears the current convention list and adds
+            the provided <see cref="T:IInject.Registration.Scanning.IScanningRule"/>s to the
+            conventions used througout the lifetime of this instance.
+            </summary>
+            <param name="convention">The <see cref="T:IInject.Registration.Scanning.IScanningRule"/>s to add.</param>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.ScanCallingAssembly">
+            <summary>
+            Scans the calling assembly.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.ScanExecutingAssembly">
+            <summary>
+            Scans the executing assembly.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.Scan(System.String)">
+            <summary>
+            Loads and scans the assembly with the provided name.
+            </summary>
+            <param name="assemblyName">The name of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.Scan(System.Reflection.AssemblyName)">
+            <summary>
+            Loads and scans the assembly with the provided <see cref="T:System.Reflection.AssemblyName"/>.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly to scan.</param>
+        </member>
+        <member name="M:IInject.Registration.Scanning.IAssemblyScanner.Scan(System.Reflection.Assembly)">
+            <summary>
+            Scans the provided <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+            <param name="assembly">The <see cref="T:System.Reflection.Assembly"/> to scan.</param>
+        </member>
+        <member name="T:IInject.Registration.EnumerableContextBuilder`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:IInject.Registration.DefaultContextBuilder">
+            <summary>
+             A class that provides methods for building
+             and registering <see cref="T:IInject.Registration.RegistryContext"/>s.
+            </summary>
+        </member>
+        <member name="T:IInject.Registration.IContextBuilder">
+            <summary>
+             Provides an interface for building <see cref="T:IInject.Registration.RegistryContext"/>s.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.Apply">
+            <summary>
+             Registers the current configuration with the <see cref="T:IInject.Container"/>.
+            </summary>
+            <returns>The current <see cref="T:IInject.IContainer"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.From``1">
+            <summary>
+             Adds the type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <typeparam name="T">The type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.</typeparam>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.From(System.Type)">
+            <summary>
+             Adds the type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <param name="fromType">The type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.To(System.Type)">
+            <summary>
+             Adds the type the <see cref="T:IInject.IContainer"/> will return when resolved.
+            </summary>
+            <param name="toType">The type the <see cref="T:IInject.IContainer"/> will return when resolved.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.With(System.String)">
+            <summary>
+             Adds a key to use when registering the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <param name="key">The key to use when registering the <see cref="T:IInject.Registration.RegistryContext"/>.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.With(IInject.Scope)">
+            <summary>
+             Adds the <see cref="T:IInject.Scope"/> associated with the instance of the resolved type.
+            </summary>
+            <param name="scope">The <see cref="T:IInject.Scope"/> associated with the instance of the resolved type.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.Return``1(``0)">
+            <summary>
+             The instance to return when resolved.
+            </summary>
+            <param name="instance">The instance to return when resolved.</param>
+            <typeparam name="T">The type of object to return.</typeparam>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder.Inject``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+             <summary>
+             Registers the selected property to be injected.
+             </summary>
+             <typeparam name="T">The parent type used to get the property.</typeparam>
+             <param name="propExpression">The Func{T, object} used to select the property.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.#ctor(IInject.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IInject.Registration.DefaultContextBuilder"/>
+            using the specified <see cref="T:IInject.IContainer"/>.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.#ctor(System.Type,IInject.IContainer)">
+            <summary>
+             Initializes a new instance of the <see cref="T:IInject.Registration.DefaultContextBuilder"/>
+             using the specified <see cref="T:System.Type"/> and <see cref="T:IInject.IContainer"/>.
+            </summary>
+            <param name="from">The type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.</param>
+            <param name="container">The <see cref="T:IInject.IContainer"/></param>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.Apply">
+            <summary>
+             Registers the current configuration with the <see cref="T:IInject.Container"/>.
+            </summary>
+            <returns>The current <see cref="T:IInject.IContainer"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.From``1">
+            <summary>
+             Adds the type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <typeparam name="T">The type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.</typeparam>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.From(System.Type)">
+            <summary>
+             Adds the type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <param name="from">The type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.To(System.Type)">
+            <summary>
+             Adds the type the <see cref="T:IInject.IContainer"/> will return when resolved.
+            </summary>
+            <param name="toType">The type the <see cref="T:IInject.IContainer"/> will return when resolved.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.With(System.String)">
+            <summary>
+             Adds a key to use when registering the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <param name="key">The key to use when registering the <see cref="T:IInject.Registration.RegistryContext"/>.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.With(IInject.Scope)">
+            <summary>
+             Adds the <see cref="P:IInject.Registration.DefaultContextBuilder.Scope"/> associated with the instance of the resolved type.
+            </summary>
+            <param name="scope">The <see cref="P:IInject.Registration.DefaultContextBuilder.Scope"/> associated with the instance of the resolved type.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.Return``1(``0)">
+            <summary>
+             The instance to return when resolved.
+            </summary>
+            <param name="instance">The instance to return when resolved.</param>
+            <typeparam name="T">The type of object to return.</typeparam>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.Inject``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+             <summary>
+             Selects a property and injects that property when resolved from the registry.
+             </summary>
+             <param name="propExpression">The expression used to get the property to inject.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.ApplyCore">
+            <summary>
+            The method that registers the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.Build">
+            <summary>
+             Builds the current configuration into a <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+            <returns>The built <see cref="T:IInject.Registration.RegistryContext"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.DefaultContextBuilder.Dispose(System.Boolean)">
+            <summary>
+            When overridden in a derived class, disposes of this instances' allocated resources.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.Key">
+            <summary>
+            Gets or sets the key to use when registering and resolving the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.Scope">
+            <summary>
+            Gets or sets the <see cref="P:IInject.Registration.DefaultContextBuilder.Scope"/> associated with the instance of the resolved type.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.Instance">
+            <summary>
+            Gets or sets the instance to return when resolved.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.FromType">
+            <summary>
+            Gets or sets the type used to register the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.ToType">
+            <summary>
+            Gets or sets the type the <see cref="T:IInject.IContainer"/> will return when resolved.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.HasRegistered">
+            <summary>
+            Returns true if the <see cref="T:IInject.Registration.RegistryContext"/> has been
+            registered with the <see cref="T:IInject.IContainer"/>, false otherwise.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.Properties">
+            <summary>
+            The properties to be injected when the type is resolved.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.Registry">
+            <summary>
+             Gets the <see cref="T:IInject.Registration.IRegistryProvider"/> responsible for registering all types.
+            </summary>
+        </member>
+        <member name="P:IInject.Registration.DefaultContextBuilder.ExpressionVisitor">
+            <summary>
+            Visits the expressions for properties that are to be injected.
+            </summary>
+        </member>
+        <member name="M:IInject.Registration.EnumerableContextBuilder`1.#ctor(System.Type,IInject.IContainer)">
+            <summary>
+             
+            </summary>
+            <param name="from"></param>
+            <param name="container"></param>
+        </member>
+        <member name="M:IInject.Registration.EnumerableContextBuilder`1.Add(`0)">
+            <summary>
+             
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:IInject.Registration.EnumerableContextBuilder`1.ApplyCore">
+            <summary>
+            The method that registers the <see cref="T:IInject.Registration.RegistryContext"/>.
+            </summary>
+        </member>
+        <member name="T:IInject.Registration.GenericContextBuilder`1">
+            <summary>
+            A class that provides methods for building
+            and registering <see cref="T:IInject.Registration.RegistryContext"/>s.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:IInject.Registration.IContextBuilder`1">
+            <summary>
+             Provides a generic interface for building <see cref="T:IInject.Registration.RegistryContext"/>s.
+            </summary>
+            <typeparam name="TFrom"></typeparam>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder`1.To``1">
+            <summary>
+             Adds the type the <see cref="T:IInject.IContainer"/> will return when resolved.
+            </summary>
+            <typeparam name="TTo">The type the <see cref="T:IInject.IContainer"/> will return when resolved.</typeparam>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder`1.Inject(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+             <summary>
+             Registers the selected property to be injected.
+             </summary>
+             <param name="propExpression">The Func{T, object} used to select the property.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.IContextBuilder`1.Inject``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+             <summary>
+             Registers the selected property to be injected.
+             </summary>
+             <param name="propExpression">The Func{T, object} used to select the property.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.GenericContextBuilder`1.#ctor(IInject.IContainer)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:IInject.Registration.GenericContextBuilder`1.To``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TTo"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Registration.GenericContextBuilder`1.Inject(System.Linq.Expressions.Expression{System.Func{`0,System.Object}})">
+             <summary>
+             Registers the selected property to be injected.
+             </summary>
+             <param name="propExpression">The Func{T, object} used to select the property.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder"/>.</returns>
+        </member>
+        <member name="M:IInject.Registration.GenericContextBuilder`1.Inject``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+             <summary>
+             Registers the selected property to be injected with the provided value.
+             </summary>
+             <typeparam name="TProperty">The type of property returned from the expression.</typeparam>
+             <param name="propExpression">The Func{T, object} used to select the property.</param>
+             <param name="value">The value to be injected into the property.</param>
+            <returns>The current <see cref="T:IInject.Registration.IContextBuilder`1"/>.</returns>
+        </member>
+        <member name="T:IInject.Resolution.Activation.IDependencyActivator`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TDependency"></typeparam>
+        </member>
+        <member name="M:IInject.Resolution.Activation.IDependencyActivator`1.Activate``1(`0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dependency"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.Activation.IDependencyActivator`1.Activate(`0)">
+            <summary>
+            
+            </summary>
+            <param name="dependency"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IInject.Resolution.Activation.ITypeDependencyActivator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IInject.Resolution.Activation.PropertyDependencyActivator.Activate(IInject.Resolution.PropertyDependency,System.Object)">
+            <summary>
+             Activates the property for the dependency.
+            </summary>
+            <param name="dependency">The property to activate.</param>
+            <param name="component">The component the property belongs to.</param>
+        </member>
+        <member name="T:IInject.Resolution.DefaultDependencyResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IInject.Resolution.IDependencyResolver`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TDependency"></typeparam>
+        </member>
+        <member name="T:IInject.Resolution.IDependencyResolver">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver.CanResolve(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.Resolve``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.Resolve``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.Resolve(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.Resolve(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.ResolveAll``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.ResolveAll``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.ResolveAll(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyResolver`1.Build(IInject.Registration.RegistryContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IInject.Resolution.DefaultDependencyResolver.#ctor(IInject.IContainer)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="P:IInject.Resolution.DefaultDependencyResolver.Registry">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IInject.Resolution.DefaultDependencyResolver.Builder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IInject.Resolution.DefaultDependencyResolver.PropertyActivator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IInject.Resolution.IDependencyBuilder`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TDependency"></typeparam>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="M:IInject.Resolution.IDependencyBuilder`2.Build(`1)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:IInject.Resolution.Activation.DefaultDependencyActivator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:IInject.Resolution.Activation.DefaultDependencyActivator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

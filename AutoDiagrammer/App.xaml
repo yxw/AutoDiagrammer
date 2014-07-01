@@ -1,0 +1,17 @@
+﻿<Application x:Class="AutoDiagrammer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+          <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Load this specific theme because the Aero theme for CheckBox has issues. It must be 1st in list
+                     otherwise it will overwrite some other application specific styles -->
+                <ResourceDictionary Source="/PresentationFramework.Royale;V3.0.0.0;31bf3856ad364e35;component\themes\royale.normalcolor.xaml" />
+                <ResourceDictionary Source="Resources/GlobalValueConverters.xaml" />
+                <ResourceDictionary Source="Resources/AppStyles.xaml" />
+                <ResourceDictionary Source="Resources/LayoutParameterTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

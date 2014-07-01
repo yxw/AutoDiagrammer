@@ -1,0 +1,108 @@
+﻿<Window x:Class="AutoDiagrammer.NonAssociatedVertexPopup"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:AutoDiagrammer"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:CinchV2="clr-namespace:Cinch;assembly=Cinch.WPF"
+ 		Title="Non Associated Vertex Data" Height="500" Width="700"
+		WindowStartupLocation="CenterScreen"
+		MinHeight="400" MinWidth="600"
+		Background="#ffdddddd"
+		WindowStyle="ToolWindow">
+    
+  
+    
+       
+    
+
+	<ScrollViewer HorizontalScrollBarVisibility="Hidden"
+				  VerticalScrollBarVisibility="Auto"
+				  Background="#ffdddddd">
+
+		<StackPanel Orientation="Vertical">
+
+
+            <Expander Header="Interfaces" 
+                      IsExpanded="True" 
+                      Style="{StaticResource GenericExpanderStyle}" 
+                      Margin="0">
+                <Expander.Visibility>
+                    <MultiBinding Converter="{StaticResource HasDataAndShouldShowMultiConv}">
+                        <Binding Path="HasInterfaces" />
+                        <Binding Path="ShowInterfaces" Source="{x:Static local:SettingsViewModel.Instance}" />
+                    </MultiBinding>
+                </Expander.Visibility>
+                <ListBox ItemsSource="{Binding Interfaces}" IsEnabled="False" 
+                                         BorderThickness="0" 
+                                         Style="{StaticResource TransparentListBoxStyle}"/>
+            </Expander>
+
+            <Expander Header="Constructors" 
+                      Style="{StaticResource GenericExpanderStyle}"
+                      IsExpanded="True"
+                      Visibility="{Binding Path=HasConstructors, Converter={StaticResource BoolToVisConv}, ConverterParameter='True'}">
+                <ListBox IsEnabled="False" x:Name="lstConstructors" 
+                         Style="{StaticResource TransparentListBoxStyle}"
+                         ItemsSource="{Binding Constructors}"/>
+            </Expander>
+
+            <Expander Header="Fields" 
+                      IsExpanded="True" 
+                      Style="{StaticResource GenericExpanderStyle}">
+                <Expander.Visibility>
+                    <MultiBinding Converter="{StaticResource HasDataAndShouldShowMultiConv}">
+                        <Binding Path="HasFields" />
+                        <Binding Path="ShowFieldTypes" Source="{x:Static local:SettingsViewModel.Instance}" />
+                    </MultiBinding>
+                </Expander.Visibility>
+                <ListBox ItemsSource="{Binding Fields}" IsEnabled="False" 
+                                     BorderThickness="0" 
+                                     Style="{StaticResource TransparentListBoxStyle}"/>
+            </Expander>
+
+            <Expander Header="Properties" 
+                      IsExpanded="True"
+                      Style="{StaticResource GenericExpanderStyle}">
+                <Expander.Visibility>
+                    <MultiBinding Converter="{StaticResource HasDataAndShouldShowMultiConv}">
+                        <Binding Path="HasProperties" />
+                        <Binding Path="ShowPropertyTypes" Source="{x:Static local:SettingsViewModel.Instance}" />
+                    </MultiBinding>
+                </Expander.Visibility>
+                <ListBox ItemsSource="{Binding Properties}" IsEnabled="False" 
+                                         BorderThickness="0" 
+                                         Style="{StaticResource TransparentListBoxStyle}"/>
+                </Expander>
+
+            <Expander Header="Methods" 
+                      IsExpanded="True"
+                      Style="{StaticResource GenericExpanderStyle}"
+                      Visibility="{Binding Path=HasMethods, Converter={StaticResource BoolToVisConv}, ConverterParameter='True'}">
+                <ListBox ItemsSource="{Binding Methods}" IsEnabled="False" 
+                         BorderThickness="0" 
+                         ItemTemplate="{StaticResource MethodItemTemplate}"
+                         Style="{StaticResource TransparentListBoxStyle}"/>
+            </Expander>
+
+            <Expander Header="Events" 
+                      IsExpanded="True" 
+                      Style="{StaticResource GenericExpanderStyle}" 
+                      Margin="0,0,0,20">
+                <Expander.Visibility>
+                    <MultiBinding Converter="{StaticResource HasDataAndShouldShowMultiConv}">
+                        <Binding Path="HasEvents" />
+                        <Binding Path="ShowPropertyTypes" Source="{x:Static local:SettingsViewModel.Instance}" />
+                    </MultiBinding>
+                </Expander.Visibility>
+                <ListBox ItemsSource="{Binding Events}" IsEnabled="False" 
+                                         BorderThickness="0" 
+                                         Style="{StaticResource TransparentListBoxStyle}"/>
+            </Expander>
+
+
+
+        </StackPanel>
+
+	</ScrollViewer>
+</Window>

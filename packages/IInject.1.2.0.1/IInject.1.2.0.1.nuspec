@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>IInject</id>
+    <version>1.2.0.1</version>
+    <title>IInject</title>
+    <authors>LogikBug</authors>
+    <owners>LogikBug</owners>
+    <projectUrl>http://iinject.codeplex.com/</projectUrl>
+    <iconUrl>https://en.gravatar.com/userimage/10356270/a756620202452a1f1e0cecc40f683879?size=200</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IInject is a DI (Dependency Injection) framework that is very light weight, fast, and easy to use.</description>
+    <releaseNotes>Fixed a few bugs in the Assembly Scanning APIs.</releaseNotes>
+    <copyright>Copyright © LogikBug 2012</copyright>
+    <tags>di dependency-injection ioc inversion-of-control iinject dependency injection</tags>
+  </metadata>
+</package>

@@ -1,0 +1,10 @@
+﻿<Window x:Class="AutoDiagrammer.HelpPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HelpPopup" Height="500" Width="700" 
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="ToolWindow">
+    <WebBrowser x:Name="wb" Margin="0">
+        
+    </WebBrowser>
+</Window>
