@@ -70,7 +70,7 @@ namespace AutoDiagrammer
 
         #region AsyncContentType
         public static readonly DependencyProperty AsyncContentTypeProperty =
-            DependencyProperty.RegisterAttached("AsyncContentType", typeof(AsyncType), typeof(Control));
+            DependencyProperty.RegisterAttached("AsyncContentType", typeof(AsyncType), typeof(AsyncHost));
 
         public static void SetAsyncContentType(UIElement element, AsyncType value)
         {
