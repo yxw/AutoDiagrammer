@@ -1,0 +1,17 @@
+.vs/*
+*/obj
+*/bin
+*.csproj.user
+*ReSharper.user
+_ReSharper*
+*resharper*
+*.suo
+*.cache
+* Thumbs.db
+*.g.cs
+
+#leftovers from merge
+*.orig
+*.bak
+*.sln.DotSettings.user
+*.DotSettings.user
