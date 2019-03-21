@@ -273,11 +273,11 @@ namespace AutoDiagrammer
                 scale.ScaleX = s;
                 scale.ScaleY = s;
                 //                rot.AngleProperty = r;
-                animation_Completed(null, null);
+                Animation_Completed(null, null);
             }
             else
             {
-                trans.BeginAnimation(TranslateTransform.XProperty, MakeAnimation(x, duration, animation_Completed));
+                trans.BeginAnimation(TranslateTransform.XProperty, MakeAnimation(x, duration, Animation_Completed));
                 trans.BeginAnimation(TranslateTransform.YProperty, MakeAnimation(y, duration));
                 scale.BeginAnimation(ScaleTransform.ScaleXProperty, MakeAnimation(s, duration));
                 scale.BeginAnimation(ScaleTransform.ScaleYProperty, MakeAnimation(s, duration));
@@ -292,15 +292,17 @@ namespace AutoDiagrammer
 
         private DoubleAnimation MakeAnimation(double to, double duration, EventHandler endEvent)
         {
-            DoubleAnimation anim = new DoubleAnimation(to, TimeSpan.FromMilliseconds(duration));
-            anim.AccelerationRatio = 0.2;
-            anim.DecelerationRatio = 0.7;
+            DoubleAnimation anim = new DoubleAnimation(to, TimeSpan.FromMilliseconds(duration))
+            {
+                AccelerationRatio = 0.2,
+                DecelerationRatio = 0.7
+            };
             if (endEvent != null)
                 anim.Completed += endEvent;
             return anim;
         }
 
-        void animation_Completed(object sender, EventArgs e)
+        void Animation_Completed(object sender, EventArgs e)
         {
             animating = false;
         }

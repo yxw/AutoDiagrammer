@@ -124,6 +124,7 @@ namespace AutoDiagrammer
 
             InitializeComponent();
         }
+        /*
         public static IEnumerable<Type> GetLoadableTypes( Assembly assembly)
         {
             if (assembly == null) throw new ArgumentNullException("assembly");
@@ -146,6 +147,7 @@ namespace AutoDiagrammer
             var catalog = new DirectoryCatalog(path, "AutoDiagrammer.*.dll");
             return new CompositionContainer(catalog);
         }
+        */
         #endregion
     }
 }

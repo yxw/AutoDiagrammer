@@ -15,8 +15,8 @@
         x:Name="theView"
         Background="{x:Null}" 
         Title="AutoDiagrammer" 
-        Height="500" 
-        Width="750"
+        Height="907.636" 
+        Width="1978.816"
         MinHeight="500"
         MinWidth="750"
         WindowState="Maximized"
@@ -130,8 +130,8 @@
                     </Border.Effect>
 
                     <Grid x:Name="vertexGrid">
-                        
-                      
+
+
 
                         <Border Background="White"
                                 x:Name="vertBord"
@@ -156,7 +156,7 @@
                                 </Border>
 
 
- 
+
                                 <local:ExpanderEx IsExpanded="{Binding CollapseConstructors}" Header="Constructors" 
                                               Style="{StaticResource GenericExpanderStyle}"
                                               Visibility="{Binding Path=HasConstructors, Converter={StaticResource BoolToVisConv}, ConverterParameter='True'}">
@@ -238,8 +238,8 @@
                                     ScaleX="{Binding ElementName=theView, Path=ReciprocalZoom, Mode=OneWay}"
                                     ScaleY="{Binding ElementName=theView, Path=ReciprocalZoom, Mode=OneWay}"/>
                             </Popup.RenderTransform>
-                            
-                            
+
+
 
                             <Border Background="Transparent" HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
@@ -475,14 +475,11 @@
                                               CommandParameter="Events"/>
                             </ContextMenu>
                         </Grid.ContextMenu>
-                        
 
-                        <zoom:ZoomControl x:Name="zoomControl"  Zoom="0.2"
+
+                        <zoom:ZoomControl x:Name="zoomControl"  Zoom="0.2" Mode="Original"
                                   ZoomBoxOpacity="0.5" Background="#ffdddddd">
                             <ContentPresenter x:Name="graphLayout"  Content="{Binding GraphLayout}" />
-                            
-                            
-                            
                         </zoom:ZoomControl>
 
 
